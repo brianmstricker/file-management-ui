@@ -10,8 +10,8 @@ const TopBar = () => {
     </span>
     <h1>Internet Download Manager 10.36</h1>
    </div>
-   <div className="pt-8 pb-8 px-6">
-    <ul className="flex gap-x-6">
+   <div className="py-8 px-6">
+    <ul className="flex gap-x-3 sm:gap-x-6">
      {features.map((feature) => (
       <li
        key={feature}

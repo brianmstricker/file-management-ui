@@ -54,8 +54,8 @@ const LeftSide = () => {
   });
  };
  return (
-  <aside className="border-r-2 border-r-neutral-800 text-neutral-400 py-6 px-6 flex flex-col justify-between min-w-[300px]">
-   <div className="flex flex-col border border-neutral-800 p-4 rounded-xl transition-all duration-200 mb-4">
+  <aside className="border-r-2 border-r-neutral-800 text-neutral-400 p-2 lg:p-6 flex-col justify-between xl:min-w-[275px] hidden md:flex">
+   <div className="flex flex-col border border-neutral-800 p-2 lg:p-4 rounded-xl transition-all duration-200 mb-4">
     {categories.map((category) => (
      <div key={category.name}>
       <div
@@ -72,7 +72,7 @@ const LeftSide = () => {
        <div>
         <FaChevronDown
          className={cn(
-          "transition-all duration-200",
+          "transition-all duration-200 ml-2",
           menuOpen?.map(
            (item) => item.idx === category.idx && item.opened && "rotate-180"
           )
@@ -82,7 +82,7 @@ const LeftSide = () => {
       </div>
       <ul
        className={cn(
-        "mx-auto flex flex-col w-fit gap-y-3 transition-all duration-500 opacity-0 ease-in h-0 -translate-y-2",
+        "mx-auto flex flex-col w-fit gap-y-1 lg:gap-y-3 transition-all duration-500 opacity-0 ease-in h-0 -translate-y-2",
         menuOpen?.map(
          (item) =>
           item.idx === category.idx &&
