@@ -11,3 +11,7 @@
 input[type="checkbox"]:checked + label {
  background: linear-gradient(to bottom right, #48bb78, #4299e1, #9f7aea);
 }
+
+input[type="checkbox"]:checked + label > span {
+ display: block;
+}
