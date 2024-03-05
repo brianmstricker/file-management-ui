@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { CiFileOn } from "react-icons/ci";
 
 const options = [
@@ -27,48 +28,29 @@ const ContextMenu = ({
  x,
  y,
  closeMenu,
- containerWidth,
- containerHeight,
 }: {
  x: number;
  y: number;
  closeMenu: () => void;
- containerWidth: number;
- containerHeight: number;
 }) => {
- console.log("cwidth", containerWidth);
- let left;
- let top;
- const halfX = containerWidth / 2;
- const halfY = containerHeight / 2;
- if (x + halfX > window.innerWidth) {
-  left = x - halfX + 230;
- } else {
-  left = x;
- }
- if (y + halfY + 75 > window.innerHeight) {
-  top = y - halfY - 185;
- } else {
-  top = y - 105;
- }
  const ref = useRef<HTMLMenuElement>(null);
  useEffect(() => {
   const handleClick = (e: MouseEvent) => {
-   if (ref.current && !ref.current.contains(e.target as Node)) {
-    closeMenu();
-   }
+   if (!ref.current) return;
+   if (ref.current.contains(e.target as Node)) return;
+   closeMenu();
   };
   document.addEventListener("click", handleClick);
   return () => document.removeEventListener("click", handleClick);
  }, [closeMenu]);
- return (
+ return createPortal(
   <menu
    ref={ref}
    className={cn(
-    "absolute w-[300px] bg-gradient-to-br from-neutral-700 via-neutral-800 via-20% to-neutral-900 z-50",
+    "fixed w-[300px] bg-gradient-to-br from-neutral-700 via-neutral-800 via-20% to-neutral-900 z-50",
     "border border-neutral-800 rounded-xl py-2"
    )}
-   style={{ left, top }}
+   style={{ left: x, top: y }}
   >
    <ul>
     {options.map((option, idx) => {
@@ -88,7 +70,8 @@ const ContextMenu = ({
      );
     })}
    </ul>
-  </menu>
+  </menu>,
+  document.body
  );
 };
 export default ContextMenu;

@@ -2,19 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-th,
-td {
- @apply py-4 px-6;
+.customGrid {
+ display: grid;
+ grid-template-columns: 45px 1fr 1fr 1fr 1fr 1fr 1fr;
+ grid-gap: 10px;
 }
 
-td:first-child {
- border-left-style: solid;
- border-top-left-radius: 10px;
- border-bottom-left-radius: 10px;
-}
-
-td:last-child {
- border-right-style: solid;
- border-bottom-right-radius: 10px;
- border-top-right-radius: 10px;
+input[type="checkbox"]:checked + label {
+ background: linear-gradient(to bottom right, #48bb78, #4299e1, #9f7aea);
 }
