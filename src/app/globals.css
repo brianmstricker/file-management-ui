@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+th,
+td {
+ @apply py-4 px-6;
+}
+
+td:first-child {
+ border-left-style: solid;
+ border-top-left-radius: 10px;
+ border-bottom-left-radius: 10px;
+}
+
+td:last-child {
+ border-right-style: solid;
+ border-bottom-right-radius: 10px;
+ border-top-right-radius: 10px;
+}

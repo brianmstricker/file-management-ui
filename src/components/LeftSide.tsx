@@ -54,7 +54,7 @@ const LeftSide = () => {
   });
  };
  return (
-  <aside className="border-r-2 border-r-neutral-800 text-neutral-400 p-2 lg:p-6 flex-col justify-between xl:min-w-[275px] hidden md:flex">
+  <aside className="border-r-2 border-r-neutral-800 text-neutral-400 p-2 lg:p-6 flex-col justify-between xl:min-w-[300px] hidden md:flex">
    <div className="flex flex-col border border-neutral-800 p-2 lg:p-4 rounded-xl transition-all duration-200 mb-4">
     {categories.map((category) => (
      <div key={category.name}>

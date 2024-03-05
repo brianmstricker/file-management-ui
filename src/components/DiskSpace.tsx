@@ -3,7 +3,7 @@ import { FaEllipsisH } from "react-icons/fa";
 
 const DiskSpace = () => {
  return (
-  <div className="flex flex-col border border-neutral-800 p-4 rounded-xl bg-gradient-to-br from-neutral-700 via-neutral-900 via-40% to-neutral-900">
+  <div className="flex flex-col border border-neutral-800 p-4 rounded-xl bg-gradient-to-br from-neutral-700 via-neutral-800 via-20% to-neutral-900">
    <div className="flex justify-between items-center">
     <div className="flex items-center gap-3">
      <TbServer className="text-xl" />
