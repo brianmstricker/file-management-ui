@@ -27,7 +27,7 @@ const secondOptions = [
 const PageTopBar = () => {
  //todo: maybe refactor the mobile/large menu
  return (
-  <div className="border-b-2 border-b-neutral-800 p-5 text-neutral-400">
+  <div className="border-b-2 border-b-neutral-800 p-2 xl:p-5 text-neutral-400">
    <div className="flex flex-col gap-2 xl:gap-0 xl:flex-row xl:items-center">
     <div className="bg-neutral-800/40 rounded-xl flex justify-between items-center min-w-[180px] xl:min-w-[300px] pr-1 py-1 pl-4 cursor-pointer">
      <div className="flex items-center gap-4">
@@ -46,7 +46,7 @@ const PageTopBar = () => {
        key={option.text}
        className="cursor-pointer hover:brightness-150 flex flex-col w-[55px] mx-auto"
       >
-       <option.icon className="text-2xl lg:text-3xl mx-auto" />
+       <option.icon className="text-lg sm:text-2xl lg:text-3xl mx-auto" />
        <span className="text-xs md:text-sm mx-auto">{option.text}</span>
       </div>
      ))}
@@ -55,7 +55,7 @@ const PageTopBar = () => {
        key={option.text}
        className="cursor-pointer hover:brightness-150 flex flex-col w-[55px] mx-auto"
       >
-       <option.icon className="text-2xl lg:text-3xl mx-auto" />
+       <option.icon className="text-lg sm:text-2xl lg:text-3xl mx-auto" />
        <span className="text-xs md:text-sm mx-auto">{option.text}</span>
       </div>
      ))}

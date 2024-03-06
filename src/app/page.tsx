@@ -121,9 +121,9 @@ export default function Home() {
     <PageTopBar />
     <div
      ref={containerRef}
-     className="p-4 pl-8 text-neutral-400 h-full w-full relative"
+     className="p-2 xl:p-4 md:pl-8 text-neutral-400 h-full w-full relative"
     >
-     <div className="customGrid items-center px-3 py-4 mb-1">
+     <div className="customGrid gridHeader px-3 py-4 mb-1">
       <span>
        <input
         type="checkbox"
@@ -146,7 +146,7 @@ export default function Home() {
       <span>Time Left</span>
       <span>Last Modification</span>
      </div>
-     <div className="flex flex-col gap-3">
+     <div className="grid grid-cols-2 md:flex md:flex-col gap-3">
       {contextMenu.show && (
        <ContextMenu
         x={contextMenu.x}
@@ -158,7 +158,7 @@ export default function Home() {
        <div
         key={file.name}
         className={cn(
-         "transition-all duration-500 cursor-pointer w-full rounded-xl customGrid items-center px-3 py-4 mb-1 ",
+         "transition-all duration-300 cursor-pointer w-full rounded-xl customGrid px-3 py-4 mb-1",
          selectedFile?.name === file.name && "bg-neutral-700",
          !selectedFile && "hover:bg-neutral-800/80"
         )}
@@ -177,7 +177,7 @@ export default function Home() {
          </label>
         </span>
         <div className="col-span-2 flex items-center gap-4">
-         <span className="text-2xl">
+         <span className="text-2xl hidden md:block">
           {file.type === "image" ? (
            <CiImageOn />
           ) : file.type === "music" ? (
@@ -192,20 +192,35 @@ export default function Home() {
          </span>
          <div className="flex flex-col gap-1">
           <span>{file.name}</span>
-          <span className="text-xs text-neutral-500 capitalize">
+          <span className="text-xs text-neutral-500 capitalize hidden md:block">
            {file.type}
           </span>
          </div>
         </div>
         <span>{file.size}</span>
-        <span>{file.status}</span>
+        <div
+         className={cn(
+          "max-w-[80%]",
+          file.status.includes("%") && "flex flex-col gap-1.5 -mt-1.5"
+         )}
+        >
+         <span>{file.status}</span>
+         {file.status.includes("%") && (
+          <div className="relative bg-gray-300/5 w-full h-2 rounded-2xl hidden md:block">
+           <div
+            className="absolute top-0 left-0 h-2 bg-gradient-to-r from-green-300 via-blue-400 to-purple-500 rounded-2xl"
+            style={{ width: file.status }}
+           />
+          </div>
+         )}
+        </div>
         <span>{file.timeLeft}</span>
         <span>{file.date}</span>
        </div>
       ))}
      </div>
-     <div className="absolute bottom-[95px] border-t-2 border-t-neutral-800 w-full left-0 py-8">
-      <div className="pl-11 customGrid items-center justify-center">
+     <div className="absolute bottom-[160px] min-[480px]:bottom-[120px] sm:bottom-[120px] xl:bottom-[95px] border-t-2 border-t-neutral-800 w-full left-0 py-4 sm:py-8">
+      <div className="md:pl-11 gridFooter">
        <span>
         <input
          type="checkbox"
@@ -239,18 +254,28 @@ export default function Home() {
          </span>
         </label>
        </span>
-       <span className="col-span-2">Select all</span>
-       <span />
-       <div className="flex col-span-3 gap-8">
-        <span>icon</span>
-        <span className="-ml-3">Speed test:</span>
-        <div className="flex items-center gap-3">
-         <RxDownload className="text-2xl" />
-         <span className="font-bold text-white">10.55 Mbs</span>
-        </div>
-        <div className="flex items-center gap-3">
-         <RxUpload className="text-2xl" />
-         <span className="font-bold text-white">6.30 Mbs</span>
+       <span className="col-span-1 sm:col-span-2 text-xs sm:text-sm md:text-base">
+        Select all
+       </span>
+       <div className="md:hidden h-[20px] w-[2px] bg-gray-800/50 mx-2" />
+       <span className="hidden xl:block" />
+       <div className="flex flex-row col-span-4 xl:col-span-3 gap-4 md:gap-8 justify-center items-center">
+        <span className="-ml-3 text-xs sm:text-sm md:text-base">
+         Speed test:
+        </span>
+        <div className="block sm:flex gap-6">
+         <div className="flex items-center gap-3">
+          <RxDownload className="text-2xl" />
+          <span className="font-bold text-white text-xs sm:text-sm md:text-base">
+           10.55 Mbs
+          </span>
+         </div>
+         <div className="flex items-center gap-3">
+          <RxUpload className="text-2xl" />
+          <span className="font-bold text-white text-xs sm:text-sm md:text-base">
+           6.30 Mbs
+          </span>
+         </div>
         </div>
        </div>
       </div>
