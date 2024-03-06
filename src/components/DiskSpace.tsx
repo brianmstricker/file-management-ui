@@ -22,7 +22,7 @@ const DiskSpace = () => {
       <span className="text-3xl px-3 absolute left-1/2 -translate-x-1/2">
        😖
       </span>
-      <span className="text-sm">100%</span>
+      <span className="text-sm relative left-3">100%</span>
      </div>
     </div>
     <div className="flex flex-col items-center mt-4">
